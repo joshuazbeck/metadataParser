@@ -9,7 +9,7 @@ var server = s.createServer(app);
 
 var connections = [];
 
-server.listen(process.env.PORT || 3000);
+server.listen(process.env.PORT || 8080);
 app.get('/', (req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'content/text');

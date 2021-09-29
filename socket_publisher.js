@@ -6,7 +6,7 @@ import {Server, Socket} from 'socket.io'; const io = new Server(server);
 
 var connections = [];
 
-server.listen(parseInt(process.env.PORT) + 1 || 3001);
+server.listen(parseInt(process.env.PORT) + 1 || 8081);
 console.log("Server is running");
 
 io.sockets.on('connection', function(socket) {
