@@ -1,16 +1,27 @@
 {
-  "name": "socket",
+  "name": "metadata-parser",
   "version": "1.0.0",
-  "description": "",
+  "description": "A socket.io solution to grabbing metadata from a shoutcast server and getting rich data from Spotify API",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Josh Beck",
   "license": "ISC",
   "dependencies": {
-    "socket.io": "*",
-    "express": "*"
+    "express": "^4.17.1",
+    "node-fetch": "^3.0.0",
+    "socket.io": "^4.2.0"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshuazbeck/metadataParser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joshuazbeck/metadataParser/issues"
+  },
+  "homepage": "https://github.com/joshuazbeck/metadataParser#readme"
 }

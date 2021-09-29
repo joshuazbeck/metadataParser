@@ -9,8 +9,12 @@ var server = s.createServer(app);
 
 var connections = [];
 
-server.listen(3001);
-
+server.listen(process.env.PORT || 3000);
+app.get('/', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'content/text');
+    res.send("Hello");
+});
 app.get('/json', (req, res) => {
    
     res.statusCode = 200;
