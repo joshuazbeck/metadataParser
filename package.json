@@ -1,7 +1,7 @@
 {
   "name": "metadata-parser",
   "version": "1.0.0",
-  "description": "A socket.io solution to grabbing metadata from a shoutcast server and getting rich data from Spotify API",
+  "description": "A solution grabbing metadata from a shoutcast server and getting rich data from Spotify API",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

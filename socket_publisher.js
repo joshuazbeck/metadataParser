@@ -1,3 +1,4 @@
+//Currently this file is unused but it handles setting up a socket.io connection to push updates to listeners upon the change of the song
 import express from 'express';
 var app = express();
 import s from 'http';
@@ -6,6 +7,7 @@ import {Server, Socket} from 'socket.io'; const io = new Server(server);
 
 var connections = [];
 
+//Arbitrary port
 server.listen(parseInt(process.env.PORT) + 1 || 8081);
 console.log("Server is running");
 
