@@ -7,7 +7,7 @@ var server = s.createServer(app);
 
 var connections = [];
 
-server.listen(process.env.PORT || 8080);
+server.listen(3000);
 ///remove "types": "module" from /Users/joshbeck/node_modules/node-fetch/package.json
 import SpotifyWebApi from 'spotify-web-api-node';
 // import { publishJson } from './socket_publisher.js';
