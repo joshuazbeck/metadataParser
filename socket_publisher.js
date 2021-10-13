@@ -1,3 +1,9 @@
+//  socket_publisher.js
+//  Tinsel & Tunes
+//
+//  Created by Josh Beck on 10/13/21.  macmanjb@gmail.com
+//  Copyright © 2021 Jesse McKeehan. All rights reserved.
+
 //Currently this file is unused but it handles setting up a socket.io connection to push updates to listeners upon the change of the song
 import express from 'express';
 var app = express();

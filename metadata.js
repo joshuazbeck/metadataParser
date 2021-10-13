@@ -1,7 +1,11 @@
-import fetch from 'node-fetch';
-///npm install node-fetch
-///remove "types": "module" from /Users/joshbeck/node_modules/node-fetch/package.json
+//  metadata.js
+//  Tinsel & Tunes
+//
+//  Created by Josh Beck on 10/13/21.  macmanjb@gmail.com
+//  Copyright © 2021 Jesse McKeehan. All rights reserved.
+
 import SpotifyWebApi from 'spotify-web-api-node';
+//Unused
 // import { publishJson } from './socket_publisher.js';
 
 //CONSTANTS

@@ -42,7 +42,13 @@ function stringifyData(results) {
     let trackId = results.body["tracks"].items[0].id;
     let trackViewURL = results.body["tracks"].items[0].external_urls.spotify;
     let songImgHigh = results.body["tracks"].items[0].album.images[0].url;
-    let songImgLow = results.body["tracks"].items[0].album.images[2].url;
+//  server.js
+//  Tinsel & Tunes
+//
+//  Created by Josh Beck on 10/13/21.  macmanjb@gmail.com
+//  Copyright © 2021 Jesse McKeehan. All rights reserved.
+
+let songImgLow = results.body["tracks"].items[0].album.images[2].url;
 
     var obj = new Object();
     obj.album = album;
