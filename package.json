@@ -15,13 +15,5 @@
     "socket.io": "^4.2.0"
   },
   "type": "module",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/joshuazbeck/metadataParser.git"
-  },
-  "bugs": {
-    "url": "https://github.com/joshuazbeck/metadataParser/issues"
-  },
-  "homepage": "https://github.com/joshuazbeck/metadataParser#readme"
+  "devDependencies": {}
 }

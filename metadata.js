@@ -73,50 +73,50 @@ await spotifyApi.clientCredentialsGrant()
 }
 
 
-//This function is currently unused but is used to set up a socket.io server if ever needed
-var currentTitle = "";
-export const checkForNewSong = async () => {
-    setInterval(function(){ 
-         fetch(baseURL, {"sid": 1}).then(response => response.text()).then(data => {
-            var title = data.split(" - ")[0].replace(" FEAT. ", ", ").replace(" & ", ", ") + ", " + data.split(" - ")[1];
-            if (currentTitle != title){
-                console.log("Searching in Spotify API for title: " + title);
-                songMeta(title).then(function(json) {
-                    if (json == null || json == "") {
-                        console.log("Original search yielded no results... do generic search in Spotify API for title: " + title);
-                        //No json returned so search with a different search term
-                        var onlyTitle = data.split(" - ")[1];
-                        songMeta(title).then(function(json) {
-                            if (json == null || json == "") {
-                                console.log("[Non-fatal ERROR] Searching in Spotify API for title... no results.  Translate title to partial JSON: " + title);
-                                var artistName = data.split(" - ")[0];
-                                var title = data.split(" - ")[1];
-                                var album = data.split(" - ")[2];
-                                var obj = new Object();
-                                obj.album = album;
-                                obj.albumUrl = null;
-                                obj.artists = null;
-                                obj.artistName = artistName;
-                                obj.artistUrl = null;
-                                obj.title = title;
-                                obj.duration = null;
-                                obj.trackId = null;
-                                obj.trackViewUrl = null;
-                                obj.songImgHigh = null;
-                                obj.songImgLow = null;
+// //This function is currently unused but is used to set up a socket.io server if ever needed
+// var currentTitle = "";
+// export const checkForNewSong = async () => {
+//     setInterval(function(){ 
+//          fetch(baseURL, {"sid": 1}).then(response => response.text()).then(data => {
+//             var title = data.split(" - ")[0].replace(" FEAT. ", ", ").replace(" & ", ", ") + ", " + data.split(" - ")[1];
+//             if (currentTitle != title){
+//                 console.log("Searching in Spotify API for title: " + title);
+//                 songMeta(title).then(function(json) {
+//                     if (json == null || json == "") {
+//                         console.log("Original search yielded no results... do generic search in Spotify API for title: " + title);
+//                         //No json returned so search with a different search term
+//                         var onlyTitle = data.split(" - ")[1];
+//                         songMeta(title).then(function(json) {
+//                             if (json == null || json == "") {
+//                                 console.log("[Non-fatal ERROR] Searching in Spotify API for title... no results.  Translate title to partial JSON: " + title);
+//                                 var artistName = data.split(" - ")[0];
+//                                 var title = data.split(" - ")[1];
+//                                 var album = data.split(" - ")[2];
+//                                 var obj = new Object();
+//                                 obj.album = album;
+//                                 obj.albumUrl = null;
+//                                 obj.artists = null;
+//                                 obj.artistName = artistName;
+//                                 obj.artistUrl = null;
+//                                 obj.title = title;
+//                                 obj.duration = null;
+//                                 obj.trackId = null;
+//                                 obj.trackViewUrl = null;
+//                                 obj.songImgHigh = null;
+//                                 obj.songImgLow = null;
 
-                                var stringify = JSON.stringify(obj);
-                                publishJson(stringify);
-                            }
-                            publishJson(json);
-                        });
-                    }
-                    publishJson(json);
-                });
-                currentTitle = title;
-            }
-        });
+//                                 var stringify = JSON.stringify(obj);
+//                                 publishJson(stringify);
+//                             }
+//                             publishJson(json);
+//                         });
+//                     }
+//                     publishJson(json);
+//                 });
+//                 currentTitle = title;
+//             }
+//         });
     
-    },1000)
-}
+//     },1000)
+// }
 
