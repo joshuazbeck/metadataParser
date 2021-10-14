@@ -92,39 +92,40 @@ app.get('/json', (req, res) => {
     fetch('http://cp1.thepuremix.net:9954/currentsong', {"sid": 1})
         .then(response => response.text())
         .then(data => {
-            
-            if (data == null || data == "") {
-                console.log("[Non-fatal ERROR] Searching in Spotify API for title... no results.  Translate title to partial JSON: " + title);
-                var artistName = data.split(" - ")[0];
-                var title = data.split(" - ")[1];
-                var album = data.split(" - ")[2];
-                var obj = new Object();
-                obj.album = album;
-                obj.albumUrl = null;
-                obj.artists = null;
-                obj.artistName = artistName;
-                obj.artistUrl = null;
-                obj.title = title;
-                obj.duration = null;
-                obj.trackId = null;
-                obj.trackViewUrl = null;
-                obj.songImgHigh = null;
-                obj.songImgLow = null;
-                
-                //Return JSON to the url
-                res.statusCode = 200;
-                res.send(obj);
-                    
-            } else {
+
                 //title not null
                 var title = data.split(" - ")[0].replace(" FEAT. ", ", ").replace(" & ", ", ") + ", " + data.split(" - ")[1];
                 let json = songMeta(title).then(function(json) {
-                    console.log("Getting JSON for the song")
-                    //Return JSON to the url
-                    res.statusCode = 200;
-                    res.send(json);
+                    if (json != null || json != "") {
+                        console.log("[Non-fatal ERROR] Searching in Spotify API for title... no results.  Translate title to partial JSON: " + title);
+                        var artistName = data.split(" - ")[0];
+                        var title = data.split(" - ")[1];
+                        var album = data.split(" - ")[2];
+                        var obj = new Object();
+                        obj.album = album;
+                        obj.albumUrl = null;
+                        obj.artists = null;
+                        obj.artistName = artistName;
+                        obj.artistUrl = null;
+                        obj.title = title;
+                        obj.duration = null;
+                        obj.trackId = null;
+                        obj.trackViewUrl = null;
+                        obj.songImgHigh = null;
+                        obj.songImgLow = null;
+                        
+                        //Return JSON to the url
+                        res.statusCode = 200;
+                        res.send(obj);
+                            
+                    } else {
+                        console.log("Getting JSON for the song")
+                        //Return JSON to the url
+                        res.statusCode = 200;
+                        res.send(json);
+                    }
                 });
-            }
+
         })
         .catch((error) => console.error(error))
 }); 
