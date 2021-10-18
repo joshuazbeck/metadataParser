@@ -97,9 +97,9 @@ app.get('/json', (req, res) => {
                 var title = data.split(" - ")[0].replace(" FEAT. ", ", ").replace(" & ", ", ") + ", " + data.split(" - ")[1];
                 console.log("the title we are searching Spotify API with tracks is: " + title);
                 let json = songMeta(title).then(function(json) {
-                    if (json != null || json != "") {
+                    if (json == null || json == "") {
                         console.log("[Non-fatal ERROR] Searching in Spotify API for title... no results.  Translate title to partial JSON: " + title);
-                        let dataParsed = "Hi - Dear - World".split(" - ");
+                        let dataParsed = data.split(" - ");
                         var artistName = dataParsed[0];
                         var title = dataParsed[1];
                         var album = "";
