@@ -92,7 +92,6 @@ app.get('/json', (req, res) => {
     fetch('http://cp1.thepuremix.net:9954/currentsong', {"sid": 1})
         .then(response => response.text())
         .then(data => {
-
                 //title not null
                 var title = data.split(" - ")[0].replace(" FEAT. ", ", ").replace(" & ", ", ") + ", " + data.split(" - ")[1];
                 console.log("the title we are searching Spotify API with tracks is: " + title);
@@ -100,8 +99,8 @@ app.get('/json', (req, res) => {
                     if (json == null || json == "") {
                         console.log("[Non-fatal ERROR] Searching in Spotify API for title... no results.  Translate title to partial JSON: " + title);
                         let dataParsed = data.split(" - ");
-                        var artistName = dataParsed[0];
-                        var title = dataParsed[1];
+                        var artistName = dataParsed[0] || " ";
+                        var title = dataParsed[1] || "Tinsel and Tunes";
                         var album = "";
 
                         for(var i = 2; i < dataParsed.length; i++){
